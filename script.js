@@ -1,27 +1,15 @@
-var imagesArr = [
-  "images/dice1.png",
-  "images/dice2.png",
-  "images/dice3.png",
-  "images/dice4.png",
-  "images/dice5.png",
-  "images/dice6.png",
-];
+let randomImg1 = Math.floor(Math.random() * 6) + 1;
+let randomSrc1 = `images/dice${randomImg1}.png`;
+document.querySelector(".img1").setAttribute("src", randomSrc1);
 
-var randomImg1 = Math.floor(Math.random() * imagesArr.length);
-
-var randomImg2 = Math.floor(Math.random() * imagesArr.length);
+let randomImg2 = Math.floor(Math.random() * 6) + 1;
+let randomSrc2 = `images/dice${randomImg2}.png`;
+document.querySelector(".img2").setAttribute("src", randomSrc2);
 
 if (randomImg1 === randomImg2) {
-  if (randomImg1 === imagesArr.length - 1) randomImg1--;
-  else {
-    randomImg1++;
-  }
+  document.querySelector("h1").innerHTML = "Draw!";
+} else if (randomImg1 > randomImg2)
+  document.querySelector("h1").innerHTML = "🚩 Play 1 wins!";
+else {
+  document.querySelector("h1").innerHTML = "Play 2 wins! 🚩";
 }
-
-let generatedImg1 = imagesArr[randomImg1];
-
-let generatedImg2 = imagesArr[randomImg2];
-
-let image1 = (document.querySelector(".img1").src = generatedImg1);
-
-let image2 = (document.querySelector(".img2").src = generatedImg2);
